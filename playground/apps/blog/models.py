@@ -9,6 +9,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    pk = models.CompositePrimaryKey("product_id", "order_id")
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     quantity = models.IntegerField()
