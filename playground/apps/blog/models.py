@@ -8,3 +8,17 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Property(models.Model):
+    name = models.CharField(max_length=64, unique=True)
+
+
+class Item(models.Model):
+    name = models.CharField(max_length=64, unique=True)
+    properties = models.ManyToManyField(Property, through="ItemProperty")
+
+
+class ItemProperty(models.Model):
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
