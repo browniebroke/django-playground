@@ -16,6 +16,7 @@ class TestAPIItemsAndProperties(APITestCase):
                 "name": "test",
                 "properties": [{"name": "test"}, {"name": "dummy"}],
             },
+            content_type="application/json",
         )
         self.assertEqual(response.status_code, 201)
         self.assertEqual(response.content,  b'{"id":1,"properties":[{"name":"test"},{"name":"dummy"}],"name":"test"}')
