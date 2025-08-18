@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from playground.apps.blog.models import Post
+from playground.apps.blog.serializers import PostSerializer
 
-# Create your views here.
+
+class PostViewSet(ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
