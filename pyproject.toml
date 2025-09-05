@@ -6,4 +6,10 @@ readme = "README.md"
 requires-python = "==3.13.*"
 dependencies = [
     "django>=5.2",
+    "pytest",
+    "pytest-django",
+    "pytest-asyncio",
 ]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "playground.settings"

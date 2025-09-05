@@ -18,6 +18,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from playground.apps.blog.views import DownloadCSVView
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("download-csv/", DownloadCSVView.as_view(), name="download-csv"),
 ]
